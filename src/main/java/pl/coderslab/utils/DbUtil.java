@@ -13,7 +13,7 @@ public class DbUtil {
     public static Connection getConnection() throws SQLException {
         return getInstance().getConnection();
     }
-    //Implementacja wzroca projektowego singleton
+
     private static DataSource getInstance() {
         if (dataSource == null) {
             try {
