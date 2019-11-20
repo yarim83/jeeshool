@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UserAdm",
+            "request": "launch",
+            "mainClass": "pl.coderslab.program.adm.UserAdm",
+            "projectName": "jee-school"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UserProgram",
+            "request": "launch",
+            "mainClass": "pl.coderslab.program.user.UserProgram",
+            "projectName": "jee-school"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExerciseAdm",
+            "request": "launch",
+            "mainClass": "pl.coderslab.program.adm.ExerciseAdm",
+            "projectName": "jee-school"
+        }
+    ]
+}
