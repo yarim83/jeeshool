@@ -1,6 +1,7 @@
 package pl.coderslab.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Solution {
 
@@ -69,5 +70,16 @@ public class Solution {
     public void setUsers_id(int users_id) {
         this.users_id = users_id;
     }
-}
 
+    @Override
+    public String toString() {
+        return "\n" + "Solution{" +
+                "id=" + id +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", description='" + description + '\'' +
+                ", exercise_id=" + exercise_id +
+                ", users_id=" + users_id +
+                '}';
+    }
+}

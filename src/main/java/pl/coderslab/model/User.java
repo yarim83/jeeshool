@@ -1,7 +1,6 @@
 package pl.coderslab.model;
 
-
-import pl.coderslab.utils.PasswordUtil;
+import pl.coderslab.util.PasswordUtil;
 
 public class User {
 
@@ -18,7 +17,7 @@ public class User {
     public User(String userName, String email, String password, int goupId) {
         this.userName = userName;
         this.email = email;
-        this.password = PasswordUtil.createHash(password); //
+        this.password = pl.coderslab.util.PasswordUtil.createHash(password); //
         this.goupId = goupId;
     }
 
@@ -60,5 +59,15 @@ public class User {
 
     public void setGoupId(int goupId) {
         this.goupId = goupId;
+    }
+
+    @Override
+    public String toString() {
+        return "\n" + "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", goupId=" + goupId +
+                '}';
     }
 }

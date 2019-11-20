@@ -2,10 +2,13 @@ package pl.coderslab.dao;
 
 import pl.coderslab.model.User;
 import pl.coderslab.model.UserGroup;
-import pl.coderslab.utils.DbUtil;
+import pl.coderslab.util.DBUtil;
 
+import javax.lang.model.element.ModuleElement;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UserGroupDao {
 
@@ -16,7 +19,7 @@ public class UserGroupDao {
     private static final String FIND_ALL_QUERY = "SELECT * FROM user_group";
 
     public UserGroup create(UserGroup userGroup) {
-        try (Connection conn = DbUtil.getConnection()) {
+        try (Connection conn = DBUtil.createConnection()) {
             PreparedStatement statement = conn.prepareStatement(CREATE_QUERY, PreparedStatement.RETURN_GENERATED_KEYS);
             statement.setString(1, userGroup.getName());
             statement.executeUpdate();
@@ -32,7 +35,7 @@ public class UserGroupDao {
     }
 
     public UserGroup read(int id) {
-        try (Connection conn = DbUtil.getConnection()) {
+        try (Connection conn = DBUtil.createConnection()) {
             PreparedStatement statement = conn.prepareStatement(READ_QUERY);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -50,7 +53,7 @@ public class UserGroupDao {
     }
 
     public void update(UserGroup userGroup) {
-        try (Connection conn = DbUtil.getConnection()) {
+        try (Connection conn = DBUtil.createConnection()) {
             PreparedStatement statement = conn.prepareStatement(UPDATE_QUERY);
             statement.setString(1, userGroup.getName());
             statement.setInt(2, userGroup.getId());
@@ -62,7 +65,7 @@ public class UserGroupDao {
     }
 
     public void delete(int id){
-        try(Connection conn = DbUtil.getConnection()){
+        try(Connection conn = DBUtil.createConnection()){
             PreparedStatement statement = conn.prepareStatement(DELETE_QUERY);
            statement.setInt(1,id);
            statement.executeUpdate();
@@ -71,18 +74,18 @@ public class UserGroupDao {
         }
     }
 
-    public UserGroup[] findAll (){
-        try(Connection conn = DbUtil.getConnection()){
-            UserGroup[] userGroups = new UserGroup[0];
+    public List<UserGroup> findAll (){
+        try(Connection conn = DBUtil.createConnection()){
+            List<UserGroup> userGroupList = new ArrayList<>();
             PreparedStatement statement = conn.prepareStatement(FIND_ALL_QUERY);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 UserGroup userGroup = new UserGroup();
                 userGroup.setId(rs.getInt("id"));
                 userGroup.setName(rs.getString("name"));
-                userGroups = addArray(userGroup, userGroups);
+                userGroupList.add(userGroup);
             }
-            return userGroups;
+            return userGroupList;
         } catch (SQLException ex){
             ex.printStackTrace();
             return null;
