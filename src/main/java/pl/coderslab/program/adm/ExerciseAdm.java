@@ -1,4 +1,5 @@
-import pl.coderslab.program.adm;
+package pl.coderslab.program.adm;
+
 import pl.coderslab.dao.ExerciseDao;
 import pl.coderslab.model.Exercise;
 

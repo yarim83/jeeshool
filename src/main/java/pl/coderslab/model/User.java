@@ -1,6 +1,6 @@
 package pl.coderslab.model;
 
-import pl.coderslab.util.PasswordUtil;
+import pl.coderslab.utils.PasswordUtil;
 
 public class User {
 
@@ -17,7 +17,7 @@ public class User {
     public User(String userName, String email, String password, int goupId) {
         this.userName = userName;
         this.email = email;
-        this.password = pl.coderslab.util.PasswordUtil.createHash(password); //
+        this.password = PasswordUtil.createHash(password); //
         this.goupId = goupId;
     }
 

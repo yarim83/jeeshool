@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @WebServlet("/testser")
-public class testser extends HttpServlet {
+public static class Testser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -23,7 +22,7 @@ public class testser extends HttpServlet {
 
         userGroupDao.create(userGroup);
 
-        List<UserGroup> all = Arrays.asList(userGroupDao.findAll());
+        List<UserGroup> all = userGroupDao.findAll();
         resp.getWriter().println(all);
     }
 }

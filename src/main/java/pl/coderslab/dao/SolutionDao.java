@@ -1,16 +1,13 @@
 package pl.coderslab.dao;
 
-import com.sun.source.tree.WhileLoopTree;
 import pl.coderslab.model.Solution;
-import pl.coderslab.util.DBUtil;
+import pl.coderslab.utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class SolutionDao {

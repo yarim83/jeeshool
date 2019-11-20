@@ -1,4 +1,4 @@
-import pl.coderslab.program.adm;
+package pl.coderslab.program.adm;
 
 import pl.coderslab.dao.UserDao;
 import pl.coderslab.model.User;

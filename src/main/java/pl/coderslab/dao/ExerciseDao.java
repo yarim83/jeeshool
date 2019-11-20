@@ -1,9 +1,8 @@
 package pl.coderslab.dao;
 
 import pl.coderslab.model.Exercise;
-import pl.coderslab.util.DBUtil;
+import pl.coderslab.utils.DBUtil;
 
-import javax.security.auth.login.CredentialException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

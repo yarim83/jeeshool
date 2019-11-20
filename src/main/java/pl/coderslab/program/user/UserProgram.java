@@ -1,4 +1,4 @@
-import pl.coderslab.program.user;
+package pl.coderslab.program.user;
 
 import pl.coderslab.dao.ExerciseDao;
 import pl.coderslab.dao.SolutionDao;

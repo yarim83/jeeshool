@@ -1,10 +1,8 @@
 package pl.coderslab.dao;
 
-import pl.coderslab.model.User;
 import pl.coderslab.model.UserGroup;
-import pl.coderslab.util.DBUtil;
+import pl.coderslab.utils.DBUtil;
 
-import javax.lang.model.element.ModuleElement;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
