@@ -21,7 +21,7 @@ public class SolutionDao {
     private static final String FIND_ALL_QUERY = "SELECT * FROM solution";
     private static final String FIND_ALL_BY_USER_ID = "SELECT * FROM solution WHERE users_id = ?";
     private static final String FIND_ALL_BY_EXERCISE_ID = "SELECT * FROM solution WHERE exercise_id = ? ORDER BY created DESC";
-
+    private static final String FIND_RECENT = "SELECT * FROM solution ORDER BY CREATED DESC LIMIT ?";
 
     public Solution create(Solution solution) {
         try (Connection conn = DBUtil.createConnection()) {
@@ -153,6 +153,33 @@ public class SolutionDao {
             return solutionList;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Solution> findRecent(int n) {
+        try (Connection connection = DBUtil.createConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_RECENT)) {
+            List<Solution> solutionList = new ArrayList<>();
+
+            preparedStatement.setInt(1, n);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Solution solution = new Solution();
+                solution.setId(resultSet.getInt("id"));
+                solution.setCreated(resultSet.getTimestamp("created"));
+                solution.setUpdated(resultSet.getTimestamp("updated"));
+                solution.setDescription(resultSet.getString("description"));
+                solution.setExercise_id(resultSet.getInt("exercise_id"));
+                solution.setUsers_id(resultSet.getInt("users_id"));
+                solutionList.add(solution);
+            }
+            resultSet.close();
+            return solutionList;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
