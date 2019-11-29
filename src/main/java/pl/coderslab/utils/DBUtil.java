@@ -25,16 +25,20 @@ public final class DBUtil {
     ///
 
     private static DataSource dataSource;
+
     public static Connection createConnection() throws SQLException {
         return getInstance().getConnection();
     }
+
     private static DataSource getInstance() {
         if (dataSource == null) {
             try {
                 Context initContext = new InitialContext();
-                Context envContext = (Context)initContext.lookup("java:/comp/env");
-                dataSource = (DataSource)envContext.lookup("jdbc/school");
-            } catch (NamingException e) { e.printStackTrace(); }
+                Context envContext = (Context) initContext.lookup("java:/comp/env");
+                dataSource = (DataSource) envContext.lookup("jdbc/school");
+            } catch (NamingException e) {
+                e.printStackTrace();
+            }
         }
         return dataSource;
     }

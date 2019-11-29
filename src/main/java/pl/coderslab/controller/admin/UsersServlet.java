@@ -1,7 +1,6 @@
-package pl.coderslab.controller;
+package pl.coderslab.controller.admin;
 
 import pl.coderslab.dao.UserDao;
-import pl.coderslab.dao.UserGroupDao;
 import pl.coderslab.model.User;
 
 import javax.servlet.ServletException;
@@ -10,22 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
-@WebServlet("/usersOfGroup")
-public class UserGroupServlet extends HttpServlet {
+@WebServlet("/adminPanel/users")
+public class UsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<User> users;
         UserDao userDao = new UserDao();
-        UserGroupDao userGroupDao = new UserGroupDao();
-        int groupId = Integer.parseInt(req.getParameter("groupId"));
-        String groupName = userGroupDao.read(groupId).getName();
-        List<User> users = userDao.findAllByExerciseId(groupId);
+        users = userDao.findAll();
 
-        req.getSession().setAttribute("groupName", groupName);
         req.getSession().setAttribute("users", users);
 
-        getServletContext().getRequestDispatcher("/users-of-group.jsp")
+        getServletContext().getRequestDispatcher("/admin/users.jsp")
                 .forward(req, resp);
     }
 }
