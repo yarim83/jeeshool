@@ -7,10 +7,10 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <!--
+
     <link type="text/css" rel="stylesheet" href="<c:url value="css/materialize.min.css"/>">
     <link type="text/css" rel="stylesheet" href="<c:url value="css/style.css"/>">
-    -->
+
 </head>
 <body>
 <%@include file="header.jsp" %>
