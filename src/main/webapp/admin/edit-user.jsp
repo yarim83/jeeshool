@@ -28,12 +28,7 @@
         <div class="input-field col s12">
             <select name="groupId">
                 <c:forEach var="group" items="${groups}">
-                    <c:if test="${user.groupId == group.id}">
-                        <option selected value="${group.id}">${group.name}</option>
-                    </c:if>
-                    <c:if test="${user.groupId != group.id}">
-                        <option value="${group.id}">${group.name}</option>
-                    </c:if>
+                    <option selected value="${group.id}">${group.name}</option>
                 </c:forEach>
             </select>
             <label>Grupa</label>
