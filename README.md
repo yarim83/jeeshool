@@ -1,4 +1,4 @@
-## About The Project
+## O Projekcie
 
 ![Screenshot](https://github.com/yarim83/jeeshool/blob/master/PrtScr.png)
 
