@@ -1,6 +1,6 @@
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/yarim83/jeeshool/blob/master/PrtScr.png)
+![Screenshot](https://github.com/yarim83/jeeshool/blob/master/PrtScr.png)
 
 Projekt prostej witryny do zarządzania autorami, grupami i zadaniami w ramach szkoły programowania.
 
